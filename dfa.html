@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html>
+	<head>
+		<link rel="stylesheet" href="http://jointjs.com/cms/downloads/joint.css">
+	</head>
+	<body>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/lodash.min.js"></script>
+		<script type="text/javascript" src="js/backbone-min.js"></script>
+		<script type="text/javascript" src="js/joint.js"></script>
+		<script type="text/javascript" src="js/joint.shapes.fsa.js"></script>
+		<script type="text/javascript" src="js/fsm.js"></script>
+		
+		<input style="height: 50px; width:300;font-size:45px;float:left;"type="text" id="fsmVal"></input>
+		<p style="float:right; font-size:40;">Use a--1 b--2 c--3 d--4 k-- 9  x-- 0 for input ex: abx</p>
+		<div onclick="fsmRun()" style="height: 71px; width: 71px;background-color:#3BFF60;float:left;cursor:pointer;">
+			<div style="position:relative; top: 9px; left: 9px;width: 0;height: 0;border-top: 25px solid transparent;border-left: 50px solid white;border-bottom: 25px solid transparent;"></div>
+		</div>
+		<div id="result"></div>
+		<div id="paper" class="paper"></div>
+		
+		<script type="text/javascript">
+			var states = [];
+			var startState = undefined;
+			var finalStates = {};
+			
+			$(document).ready(function(){
+			var paper = new joint.dia.Paper({
+				el: $('#paper'),
+				width: 1600,
+				height: 1000,
+				gridSize: 1,
+				model: graph
+			});
+			createFsm();
+		});
+		</script>
+		
+	</body>
+</html>
